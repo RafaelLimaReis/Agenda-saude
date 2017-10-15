@@ -41,11 +41,12 @@ $colors: (
   dark:       #222
 );
 
+$fa-font-path: $font-path;
+@import "font-awesome";
 
 // App iOS Variables
 // --------------------------------------------------
 // iOS only Sass variables can go here
-
 
 
 
