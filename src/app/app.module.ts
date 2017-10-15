@@ -1,6 +1,15 @@
+
 import { HttpModule } from '@angular/http';
 import { webConfig } from './../webConfig';
 import { apiPrefeitura } from './../services/api-prefeitura';
+
+import { FaIconComponent } from './../components/fa-icon/fa-icon.component';
+import { AjudaPage } from './../pages/ajuda/ajuda';
+import { PerfilPage } from './../pages/perfil/perfil';
+import { ConsultasAusentesPage } from './../pages/consultas-ausentes/consultas-ausentes';
+import { ConsultasPresentesPage } from './../pages/consultas-presentes/consultas-presentes';
+
+
 import { LoginPage } from './../pages/login/login';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
@@ -13,8 +22,13 @@ import { HomePage } from '../pages/home/home';
 
 @NgModule({
   declarations: [
+    FaIconComponent,
     MyApp,
     LoginPage,
+    ConsultasPresentesPage,
+    ConsultasAusentesPage,
+    PerfilPage,
+    AjudaPage,
     HomePage
   ],
   imports: [
@@ -26,7 +40,12 @@ import { HomePage } from '../pages/home/home';
   entryComponents: [
     MyApp,
     LoginPage,
+    ConsultasPresentesPage,
+    ConsultasAusentesPage,
+    PerfilPage,
+    AjudaPage,
     HomePage
+    
   ],
   providers: [
     StatusBar,
