@@ -1,3 +1,6 @@
+import { HttpModule } from '@angular/http';
+import { webConfig } from './../webConfig';
+import { apiPrefeitura } from './../services/api-prefeitura';
 import { LoginPage } from './../pages/login/login';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
@@ -16,7 +19,8 @@ import { HomePage } from '../pages/home/home';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    HttpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -27,6 +31,8 @@ import { HomePage } from '../pages/home/home';
   providers: [
     StatusBar,
     SplashScreen,
+    webConfig,
+    apiPrefeitura,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

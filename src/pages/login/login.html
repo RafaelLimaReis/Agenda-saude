@@ -3,8 +3,8 @@
   <ion-list>
     <p text-center>Qual o número do cartão SUS?</p>
     <ion-item>
-      <ion-input type="number" placeholder="Digite aqui"></ion-input>
+      <ion-input type="number" placeholder="Digite aqui" [(ngModel)]="cartao"></ion-input>
     </ion-item>
   </ion-list>
-  <button ion-button color="primary" style="margin-left: 35%">ENTRAR</button>
+  <button ion-button color="primary" style="margin-left: 35%" (click)="auth()">ENTRAR</button>
 </ion-content>

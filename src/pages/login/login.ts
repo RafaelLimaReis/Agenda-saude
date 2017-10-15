@@ -1,3 +1,4 @@
+import { apiPrefeitura } from './../../services/api-prefeitura';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
@@ -15,11 +16,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class LoginPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public apiPrefeitura: apiPrefeitura) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
+  }
+
+  auth(cartao: number){
+    console.log(cartao);
+    this.apiPrefeitura.auth(cartao).subscribe(res => console.log(res));
   }
 
 }
