@@ -1,4 +1,5 @@
 
+import { Login_2Page } from './../pages/login-2/login-2';
 import { HttpModule } from '@angular/http';
 import { webConfig } from './../webConfig';
 import { apiPrefeitura } from './../services/api-prefeitura';
@@ -29,6 +30,7 @@ import { HomePage } from '../pages/home/home';
     ConsultasAusentesPage,
     PerfilPage,
     AjudaPage,
+    Login_2Page,
     HomePage
   ],
   imports: [
@@ -44,6 +46,7 @@ import { HomePage } from '../pages/home/home';
     ConsultasAusentesPage,
     PerfilPage,
     AjudaPage,
+    Login_2Page,
     HomePage
     
   ],
