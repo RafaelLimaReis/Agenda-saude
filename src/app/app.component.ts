@@ -17,8 +17,12 @@ export class MyApp {
 
   @ViewChild(Nav) nav: Nav;
   pages: [{title: string, icon: string, Component: any}];
+  //rootpage pra dev 
   rootPage:any = HomePage;
 
+  //rootpage prod
+  //rootPage:any = this.verificar();
+  
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
 
     this.pages = [
@@ -34,13 +38,21 @@ export class MyApp {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
-      splashScreen.hide();
+      splashScreen.hide();   
     });
   }
 
   openPage(p: {title: string, icon:string, Component: any}): void {
-    console.log(p);
     this.nav.setRoot(p.Component);
   }
+
+  //logica de validação
+  /*verificar(){
+    if(localStorage.getItem('usuario') != null){
+      return HomePage;
+    } else {
+      return LoginPage;
+    }
+  }*/
 }
 
