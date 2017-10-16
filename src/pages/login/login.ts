@@ -1,31 +1,59 @@
+import { Login_2Page } from './../login-2/login-2';
 import { apiPrefeitura } from './../../services/api-prefeitura';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the LoginPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { IonicPage, NavController, NavParams, LoadingController, AlertController } from 'ionic-angular';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @IonicPage()
 @Component({
   selector: 'page-login',
-  templateUrl: 'login.html',
+  templateUrl: 'login.html'
 })
 export class LoginPage {
+  private auth: FormGroup;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public apiPrefeitura: apiPrefeitura) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, 
+              public apiPrefeitura: apiPrefeitura, public alertCtrl: AlertController,
+              public loadController: LoadingController, private Form:FormBuilder) {
+    this.auth = this.Form.group({
+      cartao: ['', Validators.compose([Validators.required])] 
+    });
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
   }
 
-  auth(cartao: number){
-    console.log(cartao);
-    this.apiPrefeitura.auth(cartao).subscribe(res => console.log(res));
+  authenticate(){
+    const loading = this.loadController.create({content:'Aguarde...'});
+    loading.present(loading);
+    
+    let cartao = this.auth.value.cartao;
+    this.apiPrefeitura.auth(cartao).subscribe(res => {
+      loading.dismiss();
+
+      let name = res.data[0].nome.split(' ');
+      res.data[0].nome = name[0] + ' ' + name[name.length - 2];
+      localStorage.setItem('usuario',JSON.stringify(res.data));
+      this.navCtrl.push(Login_2Page);
+    }, err => {
+      loading.dismiss();
+      if (err.status === 408) {
+        let alert = this.alertCtrl.create({
+          title: 'Ocorreu um erro!',
+          message: 'Ocorreu algum problema. Tente mais tarde.',
+          buttons: ['Voltar']
+        });
+        alert.present();
+      } else if (err.status === 404) {
+        let alert = this.alertCtrl.create({
+          title: 'Ocorreu um erro!',
+          message: 'Não encontramos seus dados.',
+          buttons: ['Voltar']
+        });
+        alert.present();
+      }
+    });
   }
 
 }
