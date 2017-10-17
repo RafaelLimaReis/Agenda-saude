@@ -17,11 +17,16 @@ export class MyApp {
 
   @ViewChild(Nav) nav: Nav;
   pages: [{title: string, icon: string, Component: any}];
+  public usuario = JSON.parse(localStorage.getItem('usuario'));
   //rootpage pra dev 
  // rootPage:any = HomePage;
 
   //rootpage prod
   rootPage:any = this.verificar();
+
+
+  public cartaoSus = this.usuario[0].cartao_sus;
+  public nome = this.usuario[0].nome;
   
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
 
@@ -41,6 +46,7 @@ export class MyApp {
       splashScreen.hide();   
     });
   }
+
 
   openPage(p: {title: string, icon:string, Component: any}): void {
     this.nav.setRoot(p.Component);
