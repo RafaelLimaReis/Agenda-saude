@@ -34,6 +34,7 @@ export class LoginPage {
 
       let name = res.data[0].nome.split(' ');
       res.data[0].nome = name[0] + ' ' + name[name.length - 2];
+      res.data[0].flag = false;
       localStorage.setItem('usuario',JSON.stringify(res.data));
       this.navCtrl.push(Login_2Page);
     }, err => {

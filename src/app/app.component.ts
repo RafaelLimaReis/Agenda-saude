@@ -1,3 +1,4 @@
+import { Login_2Page } from './../pages/login-2/login-2';
 import { LoginPage } from './../pages/login/login';
 import { AjudaPage } from './../pages/ajuda/ajuda';
 import { PerfilPage } from './../pages/perfil/perfil';
@@ -18,10 +19,10 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
   pages: [{title: string, icon: string, Component: any}];
   //rootpage pra dev 
-  rootPage:any = HomePage;
+  //rootPage:any = HomePage;
 
   //rootpage prod
-  //rootPage:any = this.verificar();
+  rootPage:any = this.verificar();
   
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
 
@@ -47,12 +48,15 @@ export class MyApp {
   }
 
   //logica de validação
-  /*verificar(){
-    if(localStorage.getItem('usuario') != null){
+  verificar(){
+    let usuario = JSON.parse(localStorage.getItem('usuario'));
+    console.log(usuario[0].flag);
+    
+    if ((usuario != null) && (usuario[0].flag === true)){
       return HomePage;
-    } else {
-      return LoginPage;
+    } else if (usuario[0].flag === false) {
+      return Login_2Page;
     }
-  }*/
+  }
 }
 
