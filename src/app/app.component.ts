@@ -18,10 +18,10 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
   pages: [{title: string, icon: string, Component: any}];
   //rootpage pra dev 
-  rootPage:any = HomePage;
+ // rootPage:any = HomePage;
 
   //rootpage prod
-  //rootPage:any = this.verificar();
+  rootPage:any = this.verificar();
   
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
 
@@ -47,12 +47,12 @@ export class MyApp {
   }
 
   //logica de validação
-  /*verificar(){
+  verificar(){
     if(localStorage.getItem('usuario') != null){
       return HomePage;
     } else {
       return LoginPage;
     }
-  }*/
+  }
 }
 

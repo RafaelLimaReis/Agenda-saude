@@ -11,4 +11,8 @@ export class apiPrefeitura{
     public auth(cartao: number){
         return this.http.get(`${this.webConfig.urlPrefeitura}authenticate/${cartao}`).map(res => res.json());
     }
+
+    public getConsultaAgendadaService(cartao: number){
+        return this.http.get(`${this.webConfig.urlPrefeitura}consultas/futuras/${cartao}`).map(res => res.json());
+    }
 }
