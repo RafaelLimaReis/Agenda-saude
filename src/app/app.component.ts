@@ -58,7 +58,7 @@ export class MyApp {
   
     if ((usuario != null) && (usuario[0].flag === true)){
       return HomePage;
-    } else if (usuario[0].flag === false) {
+    } else{
       return  LoginPage;
     }
   }
