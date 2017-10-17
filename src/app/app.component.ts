@@ -32,7 +32,7 @@ export class MyApp {
 
     this.pages = [
       {title: 'Consultas Agendadas', icon:'calendar', Component:HomePage},
-      {title: 'Consultas Presentes', icon:'calendar-check-o', Component:ConsultasPresentesPage},
+      {title: 'Consultas Realizadas', icon:'calendar-check-o', Component:ConsultasPresentesPage},
       {title: 'Consultas Ausentes', icon:'calendar-times-o', Component:ConsultasAusentesPage},
       {title: 'Perfil', icon:'user-circle-o', Component:PerfilPage},
       {title: 'Ajuda', icon:'info-circle', Component:AjudaPage},
