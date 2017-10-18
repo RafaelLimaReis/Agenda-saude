@@ -34,6 +34,8 @@ export class HomePage {
      })
   }
 
+  
+
   convertTime(time){
     return time.slice(0,5);
   }

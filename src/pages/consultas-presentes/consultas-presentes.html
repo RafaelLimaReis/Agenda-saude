@@ -13,6 +13,12 @@
 </ion-header>
 
 
-<ion-content padding>
-
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let realizada of realizadas">
+      <h2>{{realizada.Especialidade}}</h2>
+      <p>{{realizada.DataAgendamento | date : 'dd/MM/yyyy'}} - {{convertTime(realizada.HorarioParaPacienteChegar)}} </p>
+      <button ion-button clear item-end>Detalhes</button>
+    </ion-item>
+  </ion-list>
 </ion-content>
