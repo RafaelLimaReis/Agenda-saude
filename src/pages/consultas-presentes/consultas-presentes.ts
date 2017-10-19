@@ -29,7 +29,7 @@ export class ConsultasPresentesPage {
     console.log('ionViewDidLoad ConsultasPresentesPage');
   }
 
-  private getConsultaRealizadas(){
+  getConsultaRealizadas(){
     let cartaoSus = this.usuario[0].cartao_sus;
 
     const loading = this.loadController.create({content:'Aguarde...'});

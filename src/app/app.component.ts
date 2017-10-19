@@ -1,4 +1,4 @@
-import { Login_2Page } from './../pages/login-2/login-2';
+
 import { LoginPage } from './../pages/login/login';
 import { AjudaPage } from './../pages/ajuda/ajuda';
 import { PerfilPage } from './../pages/perfil/perfil';
@@ -22,8 +22,8 @@ export class MyApp {
   //rootpage pra dev 
   // rootPage:any = HomePage;
 
-  public cartaoSus = this.usuario[0].cartao_sus;
-  public nome = this.usuario[0].nome;
+   public cartaoSus: string = '';
+   public nome:string = '';
 
   //rootpage prod
   rootPage:any = this.verificar();
@@ -45,6 +45,8 @@ export class MyApp {
       statusBar.styleDefault();
       splashScreen.hide();   
     });
+
+    this.buscaDadosMenu();
   }
 
 
@@ -57,10 +59,17 @@ export class MyApp {
     let usuario = JSON.parse(localStorage.getItem('usuario'));
   
     if ((usuario != null) && (usuario[0].flag === true)){
+      this.buscaDadosMenu();
       return HomePage;
     } else{
       return  LoginPage;
     }
+  }
+
+  //dados no menu
+  buscaDadosMenu(){
+    this.cartaoSus =  (this.usuario != null) ?  this.usuario[0].cartao_sus : '';
+    this.nome = (this.usuario != null) ?  this.usuario[0].nome : ''; 
   }
 }
 
