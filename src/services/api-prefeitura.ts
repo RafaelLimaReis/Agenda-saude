@@ -15,4 +15,12 @@ export class apiPrefeitura{
     public getConsultaAgendadaService(cartao: number){
         return this.http.get(`${this.webConfig.urlPrefeitura}consultas/futuras/${cartao}`).map(res => res.json());
     }
+
+    public getConsultaRealizadaService(cartao: number){
+        return this.http.get(`${this.webConfig.urlPrefeitura}consultas/anteriores/${cartao}`).map(res => res.json());
+    }
+
+    public getConsultaAusentesService(cartao: number){
+        return this.http.get(`${this.webConfig.urlPrefeitura}consultas/faltas/${cartao}`).map(res => res.json());
+    }
 }

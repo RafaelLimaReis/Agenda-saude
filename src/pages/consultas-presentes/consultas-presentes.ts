@@ -35,18 +35,27 @@ export class ConsultasPresentesPage {
     const loading = this.loadController.create({content:'Aguarde...'});
     loading.present(loading);
 
-    return this.apiPrefeitura.getConsultaAgendadaService(cartaoSus).subscribe(res =>{
+    return this.apiPrefeitura.getConsultaRealizadaService(cartaoSus).subscribe(res =>{
       this.realizadas = res.data;
-      loading.dismiss();
     }, err =>{
-      if(err.status === 408){
+      if (err.status === 404){
         let alert = this.alertCtrl.create({
-          title: 'Ocorreu um erro!',
-          message: 'Não há conexão com a internet.',
+          message: 'Não há Consultas Realizadas.',
           buttons: ['Voltar']
         });
         loading.dismiss();
         alert.present();
+      }
+      else {
+        if(err.status === 408){
+          let alert = this.alertCtrl.create({
+            title: 'Ocorreu um erro!',
+            message: 'Não há conexão com a internet.',
+            buttons: ['Voltar']
+          });
+          loading.dismiss();
+          alert.present();
+        }
       }
     })
   }

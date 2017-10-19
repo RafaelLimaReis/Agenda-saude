@@ -1,6 +1,6 @@
 import { apiPrefeitura } from './../../services/api-prefeitura';
 import { Component } from '@angular/core';
-import { NavController, LoadingController } from 'ionic-angular';
+import { NavController, LoadingController, AlertController } from 'ionic-angular';
 
 @Component({
   selector: 'page-home',
@@ -12,7 +12,8 @@ export class HomePage {
   public agendadas : any = [];
 
   constructor(public navCtrl: NavController, public apiPrefeitura: apiPrefeitura,
-               public loadController: LoadingController) {
+               public loadController: LoadingController,
+               public alertCtrl: AlertController) {
   this.getConsultaAgendadas();
 
   }
@@ -26,14 +27,28 @@ export class HomePage {
        this.agendadas = res.data;
        localStorage.setItem('agendamentos',JSON.stringify(this.agendadas));
        loading.dismiss(); 
-     }, err => {
-       if(err.status === 408){
-        this.agendadas = JSON.parse(localStorage.getItem('agendamentos'));
-        loading.dismiss(); 
-       }
-     })
-  }
-
+      }, err =>{
+        if (err.status === 404){
+          let alert = this.alertCtrl.create({
+            message: 'Não há Consultas Agendadas.',
+            buttons: ['Voltar']
+          });
+          loading.dismiss();
+          alert.present();
+        }
+        else {
+          if(err.status === 408){
+            let alert = this.alertCtrl.create({
+              title: 'Ocorreu um erro!',
+              message: 'Não há conexão com a internet.',
+              buttons: ['Voltar']
+            });
+            loading.dismiss();
+            alert.present();
+          }
+        }
+      })
+    }
   
 
   convertTime(time){
