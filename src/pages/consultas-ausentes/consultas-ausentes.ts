@@ -1,5 +1,6 @@
+import { apiPrefeitura } from './../../services/api-prefeitura';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, AlertController } from 'ionic-angular';
 
 /**
  * Generated class for the ConsultasAusentesPage page.
@@ -15,11 +16,52 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ConsultasAusentesPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  public usuario = JSON.parse(localStorage.getItem('usuario'));
+  public ausentes : any = [];
+
+  constructor(public navCtrl: NavController, public apiPrefeitura : apiPrefeitura,
+              public loadController: LoadingController,
+              public alertCtrl: AlertController) {
+this.getConsultaAusentes();            
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ConsultasAusentesPage');
   }
 
+  getConsultaAusentes(){
+    let cartaoSus = this.usuario[0].cartao_sus;
+
+    const loading = this.loadController.create({content:'Aguarde...'});
+    loading.dismiss();
+  
+    return this.apiPrefeitura.getConsultaAusentesService(cartaoSus).subscribe(res =>{
+      this.ausentes = res.data;
+      loading.dismiss();
+    }, err =>{
+      if (err.status === 404){
+        let alert = this.alertCtrl.create({
+          message: 'Não há Consultas Ausentes.',
+          buttons: ['Voltar']
+        });
+        loading.dismiss();
+        alert.present();
+      }
+      else {
+        if(err.status === 408){
+          let alert = this.alertCtrl.create({
+            title: 'Ocorreu um erro!',
+            message: 'Não há conexão com a internet.',
+            buttons: ['Voltar']
+          });
+          loading.dismiss();
+          alert.present();
+        }
+      }
+    })
+  }
+
+  convertTime(time){
+    return time.slice(0,5);
+  }
 }
