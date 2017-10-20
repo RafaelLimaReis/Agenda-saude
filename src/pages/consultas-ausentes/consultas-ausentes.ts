@@ -1,6 +1,6 @@
 import { apiPrefeitura } from './../../services/api-prefeitura';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, LoadingController, AlertController } from 'ionic-angular';
 
 /**
  * Generated class for the ConsultasAusentesPage page.
