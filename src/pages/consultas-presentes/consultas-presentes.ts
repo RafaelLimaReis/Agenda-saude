@@ -35,8 +35,9 @@ export class ConsultasPresentesPage {
     const loading = this.loadController.create({content:'Aguarde...'});
     loading.present(loading);
 
-    return this.apiPrefeitura.getConsultaRealizadaService(cartaoSus).subscribe(res =>{
+    return this.apiPrefeitura.getConsultaRealizadasService(cartaoSus).subscribe(res =>{
       this.realizadas = res.data;
+      loading.dismiss(); 
     }, err =>{
       if (err.status === 404){
         let alert = this.alertCtrl.create({

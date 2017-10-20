@@ -23,7 +23,7 @@
   <ion-list>
     <ion-item *ngFor="let ausente of ausentes">
       <h2>{{ausente.Especialidade}}</h2>
-      <p>{{realizada.DataAgendamento | date : 'dd/MM/yyyy'}} - {{convertTime(realizada.HorarioParaPacienteChegar)}} </p>
+      <p>{{ausente.DataAgendamento | date : 'dd/MM/yyyy'}} - {{convertTime(ausente.HorarioParaPacienteChegar)}} </p>
       <button ion-button clear item-end>Detalhes</button>
     </ion-item>
   </ion-list>

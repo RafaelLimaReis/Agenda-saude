@@ -16,7 +16,7 @@ export class apiPrefeitura{
         return this.http.get(`${this.webConfig.urlPrefeitura}consultas/futuras/${cartao}`).map(res => res.json());
     }
 
-    public getConsultaRealizadaService(cartao: number){
+    public getConsultaRealizadasService(cartao: number){
         return this.http.get(`${this.webConfig.urlPrefeitura}consultas/anteriores/${cartao}`).map(res => res.json());
     }
 
