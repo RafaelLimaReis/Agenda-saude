@@ -1,3 +1,4 @@
+import { pushNotification } from './../../services/pushNotification';
 import { apiPrefeitura } from './../../services/api-prefeitura';
 import { Component } from '@angular/core';
 import { NavController, LoadingController } from 'ionic-angular';
@@ -12,7 +13,7 @@ export class HomePage {
   public agendadas : any = [];
 
   constructor(public navCtrl: NavController, public apiPrefeitura: apiPrefeitura,
-               public loadController: LoadingController) {
+               public notification: pushNotification, public loadController: LoadingController) {
   this.getConsultaAgendadas();
 
   }
@@ -25,6 +26,7 @@ export class HomePage {
      return this.apiPrefeitura.getConsultaAgendadaService(cartaoSus).subscribe(res =>{
        this.agendadas = res.data;
        localStorage.setItem('agendamentos',JSON.stringify(this.agendadas));
+       this.notification.createNotification(res.data);
        loading.dismiss(); 
      }, err => {
        if(err.status === 408){

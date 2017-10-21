@@ -56,8 +56,10 @@ export class MyApp {
   verificar(){
     let usuario = JSON.parse(localStorage.getItem('usuario'));
   
-    if ((usuario != null) && (usuario[0].flag === true)){
-      return HomePage;
+    if (usuario != null) {
+      if(usuario[0].flag === true) {
+        return HomePage;
+      }
     } else{
       return  LoginPage;
     }
