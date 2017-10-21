@@ -1,4 +1,6 @@
 import { DetalhesAgendadaPage } from './../pages/detalhes-agendada/detalhes-agendada';
+import { LocalNotifications } from '@ionic-native/local-notifications';
+import { pushNotification } from './../services/pushNotification';
 
 import { Login_2Page } from './../pages/login-2/login-2';
 import { HttpModule } from '@angular/http';
@@ -58,6 +60,8 @@ import { HomePage } from '../pages/home/home';
     SplashScreen,
     webConfig,
     apiPrefeitura,
+    pushNotification,
+    LocalNotifications,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

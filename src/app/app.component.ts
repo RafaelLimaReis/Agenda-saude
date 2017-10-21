@@ -63,9 +63,12 @@ export class MyApp {
   verificar(){
     console.log( this.menuCTRL.isEnabled());
     let usuario = JSON.parse(localStorage.getItem('usuario'));
-    if (usuario != null){
-      this.menuCTRL.enable(true);
-      return HomePage;
+  
+    if (usuario != null) {
+      if(usuario[0].flag === true) {
+        this.menuCTRL.enable(true);
+        return HomePage;
+      }
     } else{
       return  LoginPage;
       

@@ -1,4 +1,5 @@
 import { DetalhesAgendadaPage } from './../detalhes-agendada/detalhes-agendada';
+import { pushNotification } from './../../services/pushNotification';
 import { apiPrefeitura } from './../../services/api-prefeitura';
 import { Component } from '@angular/core';
 import { NavController, LoadingController, AlertController, ModalController } from 'ionic-angular';
@@ -14,7 +15,7 @@ export class HomePage {
 
   constructor(public navCtrl: NavController, public apiPrefeitura: apiPrefeitura,
                public loadController: LoadingController, public modalCtrl: ModalController,
-               public alertCtrl: AlertController) {
+               public alertCtrl: AlertController,public notification: pushNotification) {
   this.getConsultaAgendadas();
 
   }
@@ -37,6 +38,7 @@ export class HomePage {
        this.agendadas = res.data;
        console.log(res);
        localStorage.setItem('agendamentos',JSON.stringify(this.agendadas));
+       this.notification.createNotification(res.data);
        loading.dismiss(); 
       }, err =>{
         if (err.status === 404){
