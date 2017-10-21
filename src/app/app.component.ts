@@ -22,6 +22,7 @@ export class MyApp {
   public usuario = JSON.parse(localStorage.getItem('usuario'));
   //rootpage pra dev 
   // rootPage:any = HomePage;
+  // rootPage:any = AjudaPage;
 
    public cartaoSus: string = '';
    public nome:string = '';

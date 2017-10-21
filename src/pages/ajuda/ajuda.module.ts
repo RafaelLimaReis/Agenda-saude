@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { AjudaPage } from './ajuda';
-
 @NgModule({
   declarations: [
     AjudaPage,
@@ -10,4 +9,6 @@ import { AjudaPage } from './ajuda';
     IonicPageModule.forChild(AjudaPage),
   ],
 })
-export class AjudaPageModule {}
+
+export class AjudaPageModule {
+}
