@@ -25,6 +25,7 @@ export class HomePage {
     loading.present(loading);
      return this.apiPrefeitura.getConsultaAgendadaService(cartaoSus).subscribe(res =>{
        this.agendadas = res.data;
+       console.log(res);
        localStorage.setItem('agendamentos',JSON.stringify(this.agendadas));
        loading.dismiss(); 
       }, err =>{
@@ -39,16 +40,34 @@ export class HomePage {
         else {
           if(err.status === 408){
             let alert = this.alertCtrl.create({
-              title: 'Ocorreu um erro!',
-              message: 'Não há conexão com a internet.',
-              buttons: ['Voltar']
-            });
+              title: 'Não há conexão com a internet',
+              message: 'Deseja exibir as consultas armazenadas em seu aparelho ? ',
+              buttons: [
+                {
+                  text: 'Sim',
+                  role: 'sim',
+                  handler: () => {
+                    this.agendadas = JSON.parse(localStorage.getItem('agendamentos'));
+                  }
+                },
+                {
+                  text: 'Cancelar',
+                  handler: () => {
+                    console.log('Cancel clicked');
+                  }
+                }
+              ]
+            });         
+
             loading.dismiss();
             alert.present();
+            
           }
         }
       })
     }
+
+   
   
 
   convertTime(time){
