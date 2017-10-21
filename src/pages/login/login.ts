@@ -1,7 +1,7 @@
 import { Login_2Page } from './../login-2/login-2';
 import { apiPrefeitura } from './../../services/api-prefeitura';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, AlertController, MenuController } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @IonicPage()
@@ -12,12 +12,19 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class LoginPage {
   private auth: FormGroup;
 
+  public usuario: any = {};
+
   constructor(public navCtrl: NavController, public navParams: NavParams, 
               public apiPrefeitura: apiPrefeitura, public alertCtrl: AlertController,
-              public loadController: LoadingController, private Form:FormBuilder) {
+              public loadController: LoadingController, private Form:FormBuilder,
+              public menuCTRL: MenuController) {
     this.auth = this.Form.group({
       cartao: ['', Validators.compose([Validators.required])] 
     });
+
+    this.menuCTRL.enable(false);
+
+    this.consultaUser();
   }
 
   ionViewDidLoad() {
@@ -55,6 +62,14 @@ export class LoginPage {
         alert.present();
       }
     });
+  }
+
+  consultaUser(){
+    this.usuario = JSON.parse(localStorage.getItem('usuario'));
+
+    if(this.usuario != null ){
+      localStorage.clear();
+    }
   }
 
 }

@@ -1,7 +1,7 @@
 import { HomePage } from './../home/home';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, AlertController, MenuController } from 'ionic-angular';
 
 /**
  * Generated class for the Login_2Page page.
@@ -23,7 +23,8 @@ export class Login_2Page {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public alertCtrl: AlertController,
-              public loadController: LoadingController, private Form:FormBuilder) {
+              public loadController: LoadingController, private Form:FormBuilder,
+              public menuCTRL: MenuController) {
     this.validateDate = this.Form.group({
       dtNascimento: ['', Validators.compose([Validators.required])] 
     });
@@ -42,6 +43,7 @@ export class Login_2Page {
     if(this.validateDate.value.dtNascimento == dtNascimento[0]){
       this.usuario[0].flag = true;
       localStorage.setItem('usuario',JSON.stringify(this.usuario));
+      this.menuCTRL.enable(true);
       this.navCtrl.setRoot(HomePage);
       loading.dismiss();
     } else {
