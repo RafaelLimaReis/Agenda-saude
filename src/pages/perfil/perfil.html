@@ -5,19 +5,68 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
-  <ion-navbar>
-
-      <button ion-button icon-only menuToggle>
-          <ion-icon id="menu" name="menu"></ion-icon>
-      </button>
-        
-        <ion-title text-center> Perfil</ion-title>
-  </ion-navbar>
-
+	<ion-navbar>
+		<button ion-button icon-only menuToggle>
+			<ion-icon id="menu" name="menu"></ion-icon>
+		</button>
+		<ion-title text-center>Perfil</ion-title>
+	</ion-navbar>
 </ion-header>
 
-
 <ion-content padding>
+
+	<ion-list>
+		<ion-item-group>
+			<ion-card-content class="item-md-danger item-divider-md-danger" color="#FFF">
+				<p>Confira as informações abaixo e caso haja informações desatualizada, por favor vá a UBS mais próxima e solicite a atualização dos dados <i class="fa fa-exclamation-circle" aria-hidden="true"></i></p>
+			</ion-card-content>
+			<br/>
+			<ion-item-divider class="item item-divider item-md item-divider-md item-md-light item-divider-md-light" color="light">
+				<p><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;<strong>Última atualização cadastrais</strong></p>
+				<p>{{usuario[0].dt_ultimaatual | date:'dd/MM/yyyy'}}</p>
+			</ion-item-divider>
+			<ion-item class="item item-block item-md">
+				<p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;<strong>Nome:</strong></p>
+				<p><span>{{usuario[0].nome}}</span></p>
+			</ion-item>
+			<ion-item class="item item-block item-md">
+				<p><i class="fa fa-female" aria-hidden="true"></i>&nbsp;<strong>Afiliação:</strong></p>
+				<p><span>{{usuario[0].mae}}</span></p>
+			</ion-item>
+			<ion-item class="item item-block item-md">
+				<p><i class="fa fa-birthday-cake" aria-hidden="true"></i>&nbsp;<strong>Data de Nascimento:</strong></p>
+				<p><span>{{usuario[0].dt_nasc | date:'dd/MM/yyyy'}}</span></p>
+			</ion-item>
+			<ion-item class="item item-block item-md">
+				<p><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;<strong>Endereço:</strong></p>
+				<ion-item class="item item-block item-md">
+					<p>{{usuario[0].endereco}},{{usuario[0].nr}}</p>
+					<p>{{usuario[0].bairro}}</p>
+				</ion-item>
+			</ion-item>
+			<ion-item class="item item-block item-md">
+				<p><i class="fa fa-phone" aria-hidden="true"></i>&nbsp;<strong>Telefone(s):</strong></p>
+				<p>{{fones}}</p>
+			</ion-item>
+			<ion-item class="item item-block item-md">
+				<p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;<strong>E-mail:</strong></p><span>{{usuario[0].email}}</span>
+			</ion-item>
+			<ion-item class="item item-block item-md">
+				<p><i class="fa fa-venus-mars" aria-hidden="true"></i>&nbsp;<strong>Sexo:</strong></p><span>{{usuario[0].sexo}}</span>
+			</ion-item>
+			<br/>
+			<ion-item-divider class="item item-divider item-md item-divider-md item-md-light item-divider-md-light" color="light">
+				<strong>Dados complementares</strong>
+			</ion-item-divider>
+			<ion-item class="item item-block item-md">
+				<p><i class="fa fa-heart" aria-hidden="true"></i>&nbsp;<strong>Doador de Órgãos:</strong>&nbsp;<span>{{usuario[0].doador}}</span></p>
+			</ion-item>
+			<ion-item class="item item-block item-md">
+				<p><i class="fa fa-tint" aria-hidden="true"></i>&nbsp;<strong>Tipo Sanguíneo:</strong>&nbsp;<span>{{usuario[0].tipo_sangue}}</span></p>
+			</ion-item>
+		</ion-item-group>
+	</ion-list>
+
+	<button block="" ion-button="" class="disable-hover button button-md button-default button-default-md button-block button-block-md" (click)="voltar()"><span class="button-inner"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i>&nbsp;Voltar</span><div class="button-effect" style="transform: translate3d(37px, -108px, 0px) scale(1); height: 240px; width: 240px; opacity: 0; transition: transform 399ms, opacity 279ms 120ms;"></div></button>
 
 </ion-content>
