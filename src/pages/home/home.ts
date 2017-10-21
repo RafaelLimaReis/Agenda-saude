@@ -1,6 +1,7 @@
+import { DetalhesAgendadaPage } from './../detalhes-agendada/detalhes-agendada';
 import { apiPrefeitura } from './../../services/api-prefeitura';
 import { Component } from '@angular/core';
-import { NavController, LoadingController, AlertController } from 'ionic-angular';
+import { NavController, LoadingController, AlertController, ModalController } from 'ionic-angular';
 
 @Component({
   selector: 'page-home',
@@ -12,10 +13,19 @@ export class HomePage {
   public agendadas : any = [];
 
   constructor(public navCtrl: NavController, public apiPrefeitura: apiPrefeitura,
-               public loadController: LoadingController,
+               public loadController: LoadingController, public modalCtrl: ModalController,
                public alertCtrl: AlertController) {
   this.getConsultaAgendadas();
 
+  }
+
+  openDetalhes(id: number) {
+    let consultaDetalhe = this.agendadas.filter(
+      consulta => consulta.id === id
+    );
+
+    const modal = this.modalCtrl.create(DetalhesAgendadaPage,{consultaDetalhe});
+    modal.present();
   }
 
   private getConsultaAgendadas() {
@@ -66,9 +76,6 @@ export class HomePage {
         }
       })
     }
-
-   
-  
 
   convertTime(time){
     return time.slice(0,5);

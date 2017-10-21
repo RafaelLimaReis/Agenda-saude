@@ -1,3 +1,4 @@
+import { DetalhesAgendadaPage } from './../pages/detalhes-agendada/detalhes-agendada';
 
 import { Login_2Page } from './../pages/login-2/login-2';
 import { HttpModule } from '@angular/http';
@@ -31,7 +32,8 @@ import { HomePage } from '../pages/home/home';
     PerfilPage,
     AjudaPage,
     Login_2Page,
-    HomePage
+    HomePage,
+    DetalhesAgendadaPage
   ],
   imports: [
     BrowserModule,
@@ -47,7 +49,8 @@ import { HomePage } from '../pages/home/home';
     PerfilPage,
     AjudaPage,
     Login_2Page,
-    HomePage
+    HomePage,
+    DetalhesAgendadaPage
     
   ],
   providers: [
