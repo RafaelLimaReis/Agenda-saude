@@ -23,6 +23,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { ApoioPage } from '../pages/apoio/apoio';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { HomePage } from '../pages/home/home';
     AjudaPage,
     Login_2Page,
     HomePage,
-    DetalhesAgendadaPage
+    DetalhesAgendadaPage,
+    ApoioPage
   ],
   imports: [
     BrowserModule,
@@ -52,8 +54,8 @@ import { HomePage } from '../pages/home/home';
     AjudaPage,
     Login_2Page,
     HomePage,
-    DetalhesAgendadaPage
-    
+    DetalhesAgendadaPage,
+    ApoioPage    
   ],
   providers: [
     StatusBar,
