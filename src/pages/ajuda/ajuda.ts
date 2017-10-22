@@ -25,32 +25,32 @@ export class AjudaPage {
   }
   
   //Rota para abrir tela de Ajuda de Consultas Agendadas
-  ionOpcaoAjudaConsAgendadas(){
+  OpcaoAjudaConsAgendadas(){
     let modal = this.modalCtrl.create('AjudaConsultasAgendadasPage');
     modal.present();
   }
   
   //Rota para abrir tela de Ajuda de Consultas Presentes
-  ionOpcaoAjudaConsPresentes(){
+  OpcaoAjudaConsPresentes(){
     let modal = this.modalCtrl.create('AjudaConsultasPresentesPage');
     modal.present();
   }
 
   //Rota para abrir tela de Ajuda de Consultas Ausentes
-  ionOpcaoAjudaConsAusentes(){
+  OpcaoAjudaConsAusentes(){
     let modal = this.modalCtrl.create('AjudaConsultasAusentesPage');
     modal.present();
   }
 
   //Rota para abrir tela de Ajuda de Consultas Perfil
-  ionOpcaoAjudaPerfil(){
+  OpcaoAjudaPerfil(){
     let modal = this.modalCtrl.create('AjudaPerfilPage');
     modal.present();
   }
   
   //Rota para abrir tela de Ajuda Entre em Contato
-  ionOpcaoAjudaContato(){
-    let modal = this.modalCtrl.create('AjudaEntreEmContatoPage');
+  OpcaoAjudaContato(){
+    let modal = this.modalCtrl.create('AjudaEntreContatoPage');
     modal.present();
   }
 
