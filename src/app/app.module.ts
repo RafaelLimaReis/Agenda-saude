@@ -53,14 +53,9 @@ import { ApoioPage } from '../pages/apoio/apoio';
     PerfilPage,
     AjudaPage,
     Login_2Page,
-<<<<<<< HEAD
     HomePage,
-    DetalhesAgendadaPage
-=======
-    ApoioPage,
-    HomePage
->>>>>>> criacaoApoio
-    
+    DetalhesAgendadaPage,
+    ApoioPage    
   ],
   providers: [
     StatusBar,
