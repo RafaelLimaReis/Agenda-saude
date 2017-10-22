@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { AjudaPage } from '../ajuda/ajuda';
 
 /**
  * Generated class for the AjudaPerfilPage page.
@@ -23,8 +24,6 @@ export class AjudaPerfilPage {
   }
 
   voltarPerfil(){
-    this.viewCtrl.dismiss();
+    this.navCtrl.setRoot(AjudaPage);
   }
-
-
 }

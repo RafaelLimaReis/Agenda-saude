@@ -1,7 +1,11 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ModalController } from 'ionic-angular';
-
+import { AjudaConsultasAgendadasPage } from '../ajuda-consultas-agendadas/ajuda-consultas-agendadas';
+import { AjudaConsultasAusentesPage } from '../ajuda-consultas-ausentes/ajuda-consultas-ausentes';
+import { AjudaConsultasPresentesPage } from '../ajuda-consultas-presentes/ajuda-consultas-presentes';
+import { AjudaEntreContatoPage } from '../ajuda-entre-contato/ajuda-entre-contato';
+import { AjudaPerfilPage } from '../ajuda-perfil/ajuda-perfil';
 
 /**
  * Generated class for the AjudaPage page.
@@ -26,32 +30,27 @@ export class AjudaPage {
   
   //Rota para abrir tela de Ajuda de Consultas Agendadas
   OpcaoAjudaConsAgendadas(){
-    let modal = this.modalCtrl.create('AjudaConsultasAgendadasPage');
-    modal.present();
+    this.navCtrl.setRoot(AjudaConsultasAgendadasPage);
   }
   
   //Rota para abrir tela de Ajuda de Consultas Presentes
   OpcaoAjudaConsPresentes(){
-    let modal = this.modalCtrl.create('AjudaConsultasPresentesPage');
-    modal.present();
+    this.navCtrl.setRoot(AjudaConsultasPresentesPage);
   }
 
   //Rota para abrir tela de Ajuda de Consultas Ausentes
   OpcaoAjudaConsAusentes(){
-    let modal = this.modalCtrl.create('AjudaConsultasAusentesPage');
-    modal.present();
+    this.navCtrl.setRoot(AjudaConsultasAusentesPage);
   }
 
   //Rota para abrir tela de Ajuda de Consultas Perfil
   OpcaoAjudaPerfil(){
-    let modal = this.modalCtrl.create('AjudaPerfilPage');
-    modal.present();
+    this.navCtrl.setRoot(AjudaPerfilPage);
   }
   
   //Rota para abrir tela de Ajuda Entre em Contato
   OpcaoAjudaContato(){
-    let modal = this.modalCtrl.create('AjudaEntreContatoPage');
-    modal.present();
+    this.navCtrl.setRoot(AjudaEntreContatoPage);
   }
 
 }
