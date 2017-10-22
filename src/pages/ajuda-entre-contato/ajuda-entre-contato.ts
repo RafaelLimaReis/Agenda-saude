@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController  } from 'ionic-angular';
+import { AjudaPage } from '../ajuda/ajuda';
 
 /**
  * Generated class for the AjudaEntreContatoPage page.
@@ -23,9 +24,9 @@ export class AjudaEntreContatoPage {
   }
 
   
-  voltarPresentes(){
-    //console.log('sadkjfaskldfjs');
-    this.viewCtrl.dismiss();
+  voltarContato(){
+    this.navCtrl.setRoot(AjudaPage);
+//console.log('aqui');
   }
 
 }

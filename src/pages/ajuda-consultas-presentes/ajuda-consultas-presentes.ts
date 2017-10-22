@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { AjudaPage } from '../ajuda/ajuda';
 
 /**
  * Generated class for the AjudaConsultasPresentesPage page.
@@ -23,7 +24,6 @@ export class AjudaConsultasPresentesPage {
   }
 
   voltarPresentes(){
-    //console.log('sadkjfaskldfjs');
-    this.viewCtrl.dismiss();
+    this.navCtrl.setRoot(AjudaPage);
   }
 }

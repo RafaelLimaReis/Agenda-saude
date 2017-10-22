@@ -29,6 +29,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ApoioPage } from '../pages/apoio/apoio';
+import { AjudaPerfilPage } from '../pages/ajuda-perfil/ajuda-perfil';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { ApoioPage } from '../pages/apoio/apoio';
     AjudaConsultasAusentesPage,
     AjudaConsultasPresentesPage,
     SolicitarPreAgendamentoPage,
+    AjudaPerfilPage,
     AjudaEntreContatoPage,
     DetalhesAgendadaPage,
     ApoioPage
@@ -68,6 +70,7 @@ import { ApoioPage } from '../pages/apoio/apoio';
     AjudaConsultasAusentesPage,
     AjudaConsultasPresentesPage,
     SolicitarPreAgendamentoPage,
+    AjudaPerfilPage,
     AjudaEntreContatoPage,
     DetalhesAgendadaPage,
     ApoioPage    
