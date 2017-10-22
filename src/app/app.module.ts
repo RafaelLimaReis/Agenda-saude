@@ -1,3 +1,7 @@
+import { SolicitarPreAgendamentoPage } from './../pages/solicitar-pre-agendamento/solicitar-pre-agendamento';
+import { AjudaConsultasPresentesPage } from './../pages/ajuda-consultas-presentes/ajuda-consultas-presentes';
+import { AjudaConsultasAusentesPage } from './../pages/ajuda-consultas-ausentes/ajuda-consultas-ausentes';
+import { AjudaConsultasAgendadasPage } from './../pages/ajuda-consultas-agendadas/ajuda-consultas-agendadas';
 import { DetalhesAgendadaPage } from './../pages/detalhes-agendada/detalhes-agendada';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { pushNotification } from './../services/pushNotification';
@@ -36,6 +40,10 @@ import { ApoioPage } from '../pages/apoio/apoio';
     AjudaPage,
     Login_2Page,
     HomePage,
+    AjudaConsultasAgendadasPage,
+    AjudaConsultasAusentesPage,
+    AjudaConsultasPresentesPage,
+    SolicitarPreAgendamentoPage,
     DetalhesAgendadaPage,
     ApoioPage
   ],
@@ -54,6 +62,10 @@ import { ApoioPage } from '../pages/apoio/apoio';
     AjudaPage,
     Login_2Page,
     HomePage,
+    AjudaConsultasAgendadasPage,
+    AjudaConsultasAusentesPage,
+    AjudaConsultasPresentesPage,
+    SolicitarPreAgendamentoPage,
     DetalhesAgendadaPage,
     ApoioPage    
   ],

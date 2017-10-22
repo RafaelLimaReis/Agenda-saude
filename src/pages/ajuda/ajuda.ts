@@ -1,10 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ModalController } from 'ionic-angular';
-import { AjudaConsultasAgendadasPage } from '../ajuda-consultas-agendadas/ajuda-consultas-agendadas';
-import { AjudaConsultasPresentesPage } from '../ajuda-consultas-presentes/ajuda-consultas-presentes';
-import { AjudaConsultasAusentesPage } from '../ajuda-consultas-ausentes/ajuda-consultas-ausentes';
-import { AjudaEntreEmContatoPage } from '../ajuda-entre-em-contato/ajuda-entre-em-contato';
+
 
 /**
  * Generated class for the AjudaPage page.

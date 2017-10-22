@@ -1,3 +1,4 @@
+import { SolicitarPreAgendamentoPage } from './../pages/solicitar-pre-agendamento/solicitar-pre-agendamento';
 import { ApoioPage } from './../pages/apoio/apoio';
 
 import { LoginPage } from './../pages/login/login';
@@ -37,6 +38,7 @@ export class MyApp {
       {title: 'Consultas Agendadas', icon:'calendar', Component:HomePage},
       {title: 'Consultas Realizadas', icon:'calendar-check-o', Component:ConsultasPresentesPage},
       {title: 'Consultas Ausentes', icon:'calendar-times-o', Component:ConsultasAusentesPage},
+      {title: 'Solicitar Pré Agendamento', icon:'calendar-plus-o', Component:SolicitarPreAgendamentoPage},
       {title: 'Perfil', icon:'user-circle-o', Component:PerfilPage},
       {title: 'Apoio',icon:'bookmark', Component:ApoioPage},
       {title: 'Ajuda', icon:'info-circle', Component:AjudaPage},
