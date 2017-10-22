@@ -1,6 +1,7 @@
 import { apiPrefeitura } from './../../services/api-prefeitura';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, LoadingController, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, LoadingController, AlertController , ModalController} from 'ionic-angular';
+import { DetalhesAusentesPage } from '../detalhes-ausentes/detalhes-ausentes';
 
 /**
  * Generated class for the ConsultasAusentesPage page.
@@ -21,12 +22,22 @@ export class ConsultasAusentesPage {
 
   constructor(public navCtrl: NavController, public apiPrefeitura : apiPrefeitura,
               public loadController: LoadingController,
-              public alertCtrl: AlertController) {
+              public alertCtrl: AlertController,
+              public modalCtrl: ModalController) {
 this.getConsultaAusentes();            
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ConsultasAusentesPage');
+  }
+
+  openDetalhes(id: number) {
+    let consulta = this.ausentes.filter(
+      consulta => consulta.id === id
+    );
+    console.log(consulta);
+    const modal = this.modalCtrl.create(DetalhesAusentesPage,{consulta});
+    modal.present();
   }
 
   getConsultaAusentes(){

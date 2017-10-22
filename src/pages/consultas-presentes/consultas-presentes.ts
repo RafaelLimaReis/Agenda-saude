@@ -1,6 +1,7 @@
 import { apiPrefeitura } from './../../services/api-prefeitura';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, LoadingController, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, LoadingController, AlertController, ModalController } from 'ionic-angular';
+import { DetalhesRealizadaPage } from '../detalhes-realizada/detalhes-realizada';
 
 /**
  * Generated class for the ConsultasPresentesPage page.
@@ -21,13 +22,23 @@ export class ConsultasPresentesPage {
 
   constructor(public navCtrl: NavController, public apiPrefeitura : apiPrefeitura,
               public loadController: LoadingController,
-              public alertCtrl: AlertController) {
+              public alertCtrl: AlertController,
+              public modalCtrl: ModalController) {
   this.getConsultaRealizadas();
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ConsultasPresentesPage');
   }
+  openDetalhes(id: number) {
+    let consultaDetalhe = this.realizadas.filter(
+      consulta => consulta.id === id
+    );
+    
+    const modal = this.modalCtrl.create(DetalhesRealizadaPage,{consultaDetalhe});
+    modal.present();
+  }
+
 
   getConsultaRealizadas(){
     let cartaoSus = this.usuario[0].cartao_sus;
