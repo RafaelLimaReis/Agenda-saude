@@ -1,3 +1,4 @@
+import { AjudaEntreContatoPage } from './../pages/ajuda-entre-contato/ajuda-entre-contato';
 import { SolicitarPreAgendamentoPage } from './../pages/solicitar-pre-agendamento/solicitar-pre-agendamento';
 import { AjudaConsultasPresentesPage } from './../pages/ajuda-consultas-presentes/ajuda-consultas-presentes';
 import { AjudaConsultasAusentesPage } from './../pages/ajuda-consultas-ausentes/ajuda-consultas-ausentes';
@@ -44,6 +45,7 @@ import { ApoioPage } from '../pages/apoio/apoio';
     AjudaConsultasAusentesPage,
     AjudaConsultasPresentesPage,
     SolicitarPreAgendamentoPage,
+    AjudaEntreContatoPage,
     DetalhesAgendadaPage,
     ApoioPage
   ],
@@ -66,6 +68,7 @@ import { ApoioPage } from '../pages/apoio/apoio';
     AjudaConsultasAusentesPage,
     AjudaConsultasPresentesPage,
     SolicitarPreAgendamentoPage,
+    AjudaEntreContatoPage,
     DetalhesAgendadaPage,
     ApoioPage    
   ],
