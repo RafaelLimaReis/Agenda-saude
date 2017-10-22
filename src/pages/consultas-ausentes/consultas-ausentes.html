@@ -18,7 +18,7 @@
     <ion-item *ngFor="let ausente of ausentes">
       <h2>{{ausente.Especialidade}}</h2>
       <p>{{ausente.DataAgendamento | date : 'dd/MM/yyyy'}} - {{convertTime(ausente.HorarioParaPacienteChegar)}} </p>
-      <button ion-button clear item-end>Detalhes</button>
+      <button (click)="openDetalhes(ausente.id)" ion-button clear item-end>Detalhes</button>
     </ion-item>
   </ion-list>
 </ion-content>

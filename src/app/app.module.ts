@@ -1,8 +1,3 @@
-import { AjudaEntreContatoPage } from './../pages/ajuda-entre-contato/ajuda-entre-contato';
-import { SolicitarPreAgendamentoPage } from './../pages/solicitar-pre-agendamento/solicitar-pre-agendamento';
-import { AjudaConsultasPresentesPage } from './../pages/ajuda-consultas-presentes/ajuda-consultas-presentes';
-import { AjudaConsultasAusentesPage } from './../pages/ajuda-consultas-ausentes/ajuda-consultas-ausentes';
-import { AjudaConsultasAgendadasPage } from './../pages/ajuda-consultas-agendadas/ajuda-consultas-agendadas';
 import { DetalhesAgendadaPage } from './../pages/detalhes-agendada/detalhes-agendada';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { pushNotification } from './../services/pushNotification';
@@ -29,6 +24,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ApoioPage } from '../pages/apoio/apoio';
+import { DetalhesRealizadaPage } from '../pages/detalhes-realizada/detalhes-realizada';
+import { DetalhesAusentesPage } from '../pages/detalhes-ausentes/detalhes-ausentes';
 
 @NgModule({
   declarations: [
@@ -41,12 +38,9 @@ import { ApoioPage } from '../pages/apoio/apoio';
     AjudaPage,
     Login_2Page,
     HomePage,
-    AjudaConsultasAgendadasPage,
-    AjudaConsultasAusentesPage,
-    AjudaConsultasPresentesPage,
-    SolicitarPreAgendamentoPage,
-    AjudaEntreContatoPage,
     DetalhesAgendadaPage,
+    DetalhesRealizadaPage,
+    DetalhesAusentesPage,
     ApoioPage
   ],
   imports: [
@@ -64,12 +58,9 @@ import { ApoioPage } from '../pages/apoio/apoio';
     AjudaPage,
     Login_2Page,
     HomePage,
-    AjudaConsultasAgendadasPage,
-    AjudaConsultasAusentesPage,
-    AjudaConsultasPresentesPage,
-    SolicitarPreAgendamentoPage,
-    AjudaEntreContatoPage,
     DetalhesAgendadaPage,
+    DetalhesRealizadaPage,
+    DetalhesAusentesPage,
     ApoioPage    
   ],
   providers: [
