@@ -80,7 +80,6 @@ import { AjudaConsultasAgendadasPage } from '../pages/ajuda-consultas-agendadas/
     SolicitarPreAgendamentoPage,
     AjudaPerfilPage,
     AjudaEntreContatoPage,
-    detalhesRealizada,
     DetalhesAgendadaPage,
     DetalhesRealizadaPage,
     DetalhesAusentesPage,
