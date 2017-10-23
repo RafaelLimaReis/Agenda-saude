@@ -56,10 +56,10 @@ export class SolicitarPreAgendamentoPage {
     let data = new Date();
     this.dados = {matricula:usuario[0].matricula, data:data, idEspecialidade:this.id, idMotivo:this.motivo, plataforma:'mobile'};
     carregar.present(carregar);
-    let retorno = this.apiPrefeitura.solicitarPreAgendamento(this.dados);
+    this.apiPrefeitura.solicitarPreAgendamento(this.dados);
       let alert = this.alertCtrl.create({
         title: 'Tudo ok!',
-        message: 'Data de nascimento incorreta.',
+        message: 'Pré consulta cadastrada com sucesso.',
         buttons: [{
           text:'Voltar',
           handler:() =>{
