@@ -4,6 +4,7 @@ import { pushNotification } from './../services/pushNotification';
 
 import { Login_2Page } from './../pages/login-2/login-2';
 import { HttpModule } from '@angular/http';
+import { Network } from '@ionic-native/network';
 import { webConfig } from './../webConfig';
 import { apiPrefeitura } from './../services/api-prefeitura';
 
@@ -91,6 +92,7 @@ import { AjudaConsultasAgendadasPage } from '../pages/ajuda-consultas-agendadas/
     webConfig,
     apiPrefeitura,
     pushNotification,
+    Network,
     LocalNotifications,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
