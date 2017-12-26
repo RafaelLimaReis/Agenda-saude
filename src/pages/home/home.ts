@@ -31,15 +31,14 @@ export class HomePage {
 
   private getConsultaAgendadas() {
     let cartaoSus = this.usuario[0].cartao_sus;
-    
+
     const loading = this.loadController.create({content:'Aguarde...'});
     loading.present(loading);
-     return this.apiPrefeitura.getConsultaAgendadaService(cartaoSus).subscribe(res =>{
-       this.agendadas = res.data;
-       console.log(res);
+     return this.apiPrefeitura.getConsultaAgendadaService(cartaoSus).subscribe(res => {
+       this.agendadas = res;
        localStorage.setItem('agendamentos',JSON.stringify(this.agendadas));
-       this.notification.createNotification(res.data);
-       loading.dismiss(); 
+       this.notification.createNotification(res);
+       loading.dismiss();
       }, err =>{
         if (err.status === 404){
           let alert = this.alertCtrl.create({
@@ -69,11 +68,11 @@ export class HomePage {
                   }
                 }
               ]
-            });         
+            });
 
             loading.dismiss();
             alert.present();
-            
+
           }
         }
       })
@@ -82,5 +81,5 @@ export class HomePage {
   convertTime(time){
     return time.slice(0,5);
   }
-  
+
 }

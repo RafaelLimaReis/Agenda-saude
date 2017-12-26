@@ -24,7 +24,7 @@ export class ConsultasAusentesPage {
               public loadController: LoadingController,
               public alertCtrl: AlertController,
               public modalCtrl: ModalController) {
-this.getConsultaAusentes();            
+this.getConsultaAusentes();
   }
 
   ionViewDidLoad() {
@@ -45,9 +45,9 @@ this.getConsultaAusentes();
 
     const loading = this.loadController.create({content:'Aguarde...'});
     loading.dismiss();
-  
+
     return this.apiPrefeitura.getConsultaAusentesService(cartaoSus).subscribe(res =>{
-      this.ausentes = res.data;
+      this.ausentes = res;
       loading.dismiss();
     }, err =>{
       if (err.status === 404){
