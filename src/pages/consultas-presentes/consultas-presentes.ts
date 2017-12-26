@@ -34,7 +34,7 @@ export class ConsultasPresentesPage {
     let consultaDetalhe = this.realizadas.filter(
       consulta => consulta.id === id
     );
-    
+
     const modal = this.modalCtrl.create(DetalhesRealizadaPage,{consultaDetalhe});
     modal.present();
   }
@@ -47,8 +47,8 @@ export class ConsultasPresentesPage {
     loading.present(loading);
 
     return this.apiPrefeitura.getConsultaRealizadasService(cartaoSus).subscribe(res =>{
-      this.realizadas = res.data;
-      loading.dismiss(); 
+      this.realizadas = res;
+      loading.dismiss();
     }, err =>{
       if (err.status === 404){
         let alert = this.alertCtrl.create({
