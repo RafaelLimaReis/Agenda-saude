@@ -1,4 +1,4 @@
-import { HomePage } from './../home/home';
+import { ConsultaPage } from './../consultas/consulta';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController, AlertController, MenuController } from 'ionic-angular';
@@ -26,7 +26,7 @@ export class Login_2Page {
               public loadController: LoadingController, private Form:FormBuilder,
               public menuCTRL: MenuController) {
     this.validateDate = this.Form.group({
-      dtNascimento: ['', Validators.compose([Validators.required])] 
+      dtNascimento: ['', Validators.compose([Validators.required])]
     });
   }
 
@@ -44,7 +44,7 @@ export class Login_2Page {
       this.usuario[0].flag = true;
       localStorage.setItem('usuario',JSON.stringify(this.usuario));
       this.menuCTRL.enable(true);
-      this.navCtrl.setRoot(HomePage);
+      this.navCtrl.setRoot(ConsultaPage);
       loading.dismiss();
     } else {
       loading.dismiss();

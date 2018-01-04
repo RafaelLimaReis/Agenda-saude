@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController  } from 'ionic-angular';
 
 /**
- * Generated class for the DetalhesAusentesPage page.
+ * Generated class for the DetalhesConsultaPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -10,10 +10,10 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
 
 @IonicPage()
 @Component({
-  selector: 'page-detalhes-ausentes',
-  templateUrl: 'detalhes-ausentes.html',
+  selector: 'page-detalhes-cosulta',
+  templateUrl: 'detalhes-consulta.html',
 })
-export class DetalhesAusentesPage {
+export class DetalhesConsultaPage {
 
   public consulta = this.navParams.get('consulta');
 
@@ -22,10 +22,11 @@ export class DetalhesAusentesPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad DetalhesAusentesPage');
+    console.log('ionViewDidLoad DetalhesAgendadaPage');
+    console.log(this.consulta);
   }
 
-  voltarAusentes(){
+  voltarAgendadas(){
     this.viewCtrl.dismiss();
   }
 
