@@ -11,7 +11,7 @@ import { Platform, Nav, MenuController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { HomePage } from './../pages/home/home';
+import { ConsultaPage } from './../pages/consultas/consulta';
 
 @Component({
   templateUrl: 'app.html'
@@ -21,7 +21,7 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
   pages: [{title: string, icon: string, Component: any}];
   public usuario = JSON.parse(localStorage.getItem('usuario'));
-  //rootpage pra dev 
+  //rootpage pra dev
   // rootPage:any = HomePage;
   // rootPage:any = AjudaPage;
 
@@ -30,12 +30,12 @@ export class MyApp {
 
   //rootpage prod
   rootPage:any = this.verificar();
-  
-  
+
+
   constructor(public platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,
               public menuCTRL: MenuController) {
     this.pages = [
-      {title: 'Consultas Agendadas', icon:'calendar', Component:HomePage},
+      {title: 'Consultas Agendadas', icon:'calendar', Component:ConsultaPage},
       {title: 'Consultas Realizadas', icon:'calendar-check-o', Component:ConsultasPresentesPage},
       {title: 'Consultas Ausentes', icon:'calendar-times-o', Component:ConsultasAusentesPage},
       {title: 'Solicitar Pré Agendamento', icon:'calendar-plus-o', Component:SolicitarPreAgendamentoPage},
@@ -50,7 +50,7 @@ export class MyApp {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
-      splashScreen.hide();   
+      splashScreen.hide();
     });
 
     this.buscaDadosMenu();
@@ -66,22 +66,22 @@ export class MyApp {
   verificar(){
     console.log( this.menuCTRL.isEnabled());
     let usuario = JSON.parse(localStorage.getItem('usuario'));
-  
+
     if (usuario != null) {
       if(usuario[0].flag === true) {
         this.menuCTRL.enable(true);
-        return HomePage;
+        return ConsultaPage;
       }
     } else{
       return  LoginPage;
-      
+
     }
   }
 
   //dados no menu
   buscaDadosMenu(){
     this.cartaoSus =  (this.usuario != null) ?  this.usuario[0].cartao_sus : '';
-    this.nome = (this.usuario != null) ?  this.usuario[0].nome : ''; 
+    this.nome = (this.usuario != null) ?  this.usuario[0].nome : '';
   }
 }
 

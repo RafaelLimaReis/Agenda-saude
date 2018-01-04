@@ -1,6 +1,6 @@
-import { HomePage } from './../home/home';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ConsultaPage } from '../consultas/consulta';
 
 @IonicPage()
 @Component({
@@ -26,7 +26,7 @@ export class PerfilPage {
 	}
 
 	voltar(){
-		this.navCtrl.setRoot(HomePage);
+		this.navCtrl.setRoot(ConsultaPage);
 	}
 
 }

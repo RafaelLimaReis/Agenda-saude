@@ -1,14 +1,14 @@
-import { DetalhesAgendadaPage } from './../detalhes-agendada/detalhes-agendada';
+import { DetalhesConsultaPage } from './../detalhes-consulta/detalhes-consulta';
 import { pushNotification } from './../../services/pushNotification';
 import { apiPrefeitura } from './../../services/api-prefeitura';
 import { Component } from '@angular/core';
 import { NavController, LoadingController, AlertController, ModalController } from 'ionic-angular';
 
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html'
+  selector: 'page-consulta',
+  templateUrl: 'consulta.html'
 })
-export class HomePage {
+export class ConsultaPage {
 
   public usuario = JSON.parse(localStorage.getItem('usuario'));
   public agendadas : any = [];
@@ -20,12 +20,8 @@ export class HomePage {
 
   }
 
-  openDetalhes(id: number) {
-    let consultaDetalhe = this.agendadas.filter(
-      consulta => consulta.id === id
-    );
-
-    const modal = this.modalCtrl.create(DetalhesAgendadaPage,{consultaDetalhe});
+  openDetalhes(consulta: object) {
+    const modal = this.modalCtrl.create(DetalhesConsultaPage,{consulta});
     modal.present();
   }
 

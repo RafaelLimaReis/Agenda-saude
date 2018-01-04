@@ -1,7 +1,7 @@
+import { DetalhesConsultaPage } from './../detalhes-consulta/detalhes-consulta';
 import { apiPrefeitura } from './../../services/api-prefeitura';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, LoadingController, AlertController, ModalController } from 'ionic-angular';
-import { DetalhesRealizadaPage } from '../detalhes-realizada/detalhes-realizada';
 
 /**
  * Generated class for the ConsultasPresentesPage page.
@@ -30,12 +30,8 @@ export class ConsultasPresentesPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad ConsultasPresentesPage');
   }
-  openDetalhes(id: number) {
-    let consultaDetalhe = this.realizadas.filter(
-      consulta => consulta.id === id
-    );
-
-    const modal = this.modalCtrl.create(DetalhesRealizadaPage,{consultaDetalhe});
+  openDetalhes(consulta: object) {
+    const modal = this.modalCtrl.create(DetalhesConsultaPage,{consulta});
     modal.present();
   }
 

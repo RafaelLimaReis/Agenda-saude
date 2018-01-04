@@ -1,4 +1,4 @@
-import { DetalhesAgendadaPage } from './../pages/detalhes-agendada/detalhes-agendada';
+import { DetalhesConsultaPage } from './../pages/detalhes-consulta/detalhes-consulta';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { pushNotification } from './../services/pushNotification';
 
@@ -23,13 +23,11 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
+import { ConsultaPage } from '../pages/consultas/consulta';
 import { ApoioPage } from '../pages/apoio/apoio';
 
 import { AjudaPerfilPage } from '../pages/ajuda-perfil/ajuda-perfil';
 
-import { DetalhesRealizadaPage } from '../pages/detalhes-realizada/detalhes-realizada';
-import { DetalhesAusentesPage } from '../pages/detalhes-ausentes/detalhes-ausentes';
 import { SolicitarPreAgendamentoPage } from '../pages/solicitar-pre-agendamento/solicitar-pre-agendamento';
 import { AjudaEntreContatoPage } from '../pages/ajuda-entre-contato/ajuda-entre-contato';
 import { AjudaConsultasPresentesPage } from '../pages/ajuda-consultas-presentes/ajuda-consultas-presentes';
@@ -47,17 +45,14 @@ import { AjudaConsultasAgendadasPage } from '../pages/ajuda-consultas-agendadas/
     PerfilPage,
     AjudaPage,
     Login_2Page,
-    HomePage,
+    ConsultaPage,
     AjudaConsultasAgendadasPage,
     AjudaConsultasAusentesPage,
     AjudaConsultasPresentesPage,
     SolicitarPreAgendamentoPage,
     AjudaPerfilPage,
     AjudaEntreContatoPage,
-    DetalhesRealizadaPage,
-    DetalhesAgendadaPage,
-    DetalhesRealizadaPage,
-    DetalhesAusentesPage,
+    DetalhesConsultaPage,
     ApoioPage
   ],
   imports: [
@@ -74,17 +69,15 @@ import { AjudaConsultasAgendadasPage } from '../pages/ajuda-consultas-agendadas/
     PerfilPage,
     AjudaPage,
     Login_2Page,
-    HomePage,
+    ConsultaPage,
     AjudaConsultasAgendadasPage,
     AjudaConsultasAusentesPage,
     AjudaConsultasPresentesPage,
     SolicitarPreAgendamentoPage,
     AjudaPerfilPage,
     AjudaEntreContatoPage,
-    DetalhesAgendadaPage,
-    DetalhesRealizadaPage,
-    DetalhesAusentesPage,
-    ApoioPage    
+    DetalhesConsultaPage,
+    ApoioPage
   ],
   providers: [
     StatusBar,

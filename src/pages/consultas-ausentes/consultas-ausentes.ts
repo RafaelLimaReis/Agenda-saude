@@ -1,7 +1,7 @@
+import { DetalhesConsultaPage } from './../detalhes-consulta/detalhes-consulta';
 import { apiPrefeitura } from './../../services/api-prefeitura';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, LoadingController, AlertController , ModalController} from 'ionic-angular';
-import { DetalhesAusentesPage } from '../detalhes-ausentes/detalhes-ausentes';
 
 /**
  * Generated class for the ConsultasAusentesPage page.
@@ -31,12 +31,8 @@ this.getConsultaAusentes();
     console.log('ionViewDidLoad ConsultasAusentesPage');
   }
 
-  openDetalhes(id: number) {
-    let consulta = this.ausentes.filter(
-      consulta => consulta.id === id
-    );
-    console.log(consulta);
-    const modal = this.modalCtrl.create(DetalhesAusentesPage,{consulta});
+  openDetalhes(consulta: object) {
+    const modal = this.modalCtrl.create(DetalhesConsultaPage,{consulta});
     modal.present();
   }
 

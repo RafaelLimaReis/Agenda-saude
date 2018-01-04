@@ -1,4 +1,4 @@
-import { HomePage } from './../home/home';
+import { ConsultaPage } from './../consultas/consulta';
 import { apiPrefeitura } from './../../services/api-prefeitura';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController, LoadingController, AlertController } from 'ionic-angular';
@@ -63,7 +63,7 @@ export class SolicitarPreAgendamentoPage {
         buttons: [{
           text:'Voltar',
           handler:() =>{
-            this.navCtrl.setRoot(HomePage);
+            this.navCtrl.setRoot(ConsultaPage);
           }
         }]
       });
