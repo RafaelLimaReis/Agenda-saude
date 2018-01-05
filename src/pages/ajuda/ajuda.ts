@@ -1,11 +1,8 @@
+import { AjudaDetalhePage } from './../ajuda-detalhe/ajuda-detalhe';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { ModalController } from 'ionic-angular';
-import { AjudaConsultasAgendadasPage } from '../ajuda-consultas-agendadas/ajuda-consultas-agendadas';
-import { AjudaConsultasAusentesPage } from '../ajuda-consultas-ausentes/ajuda-consultas-ausentes';
-import { AjudaConsultasPresentesPage } from '../ajuda-consultas-presentes/ajuda-consultas-presentes';
+import { ModalController } from 'ionic-angular'
 import { AjudaEntreContatoPage } from '../ajuda-entre-contato/ajuda-entre-contato';
-import { AjudaPerfilPage } from '../ajuda-perfil/ajuda-perfil';
 
 /**
  * Generated class for the AjudaPage page.
@@ -21,33 +18,56 @@ import { AjudaPerfilPage } from '../ajuda-perfil/ajuda-perfil';
 })
 export class AjudaPage {
 
+  public helpDescription = [{
+    title:'Consulta Agendada',
+    description:'O Menu de Consultas Agendadas permite que você visualize suas consultas marcadas, com suas devidas datas e horários.'
+  },
+  {
+   title:'Consultas Ausentes',
+   description:'O menu de Consultas Ausentes permite que você visualize suas consultas marcadas, na qual não foi comparecido nas datas e horários agendados.'
+  },
+  {
+    title:'Consultas Presentes',
+    description:'O menu de Consultas Presentes permite que você visualize suas consultas em que você compareceu na unidade.'
+  },
+  {
+  title:'Perfil',
+  description:'O menu de Perfil mostra á você os dados cadastrais que foram preenchidos na U.B.S.' +
+              'Caso os seus dados estejam desatualizados ou queira complementá-los, dirija-se por gentileza a U.B.S mais' +
+              'próxima de você e atualize o seu cadastro!.'
+  }]
+
   constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AjudaPage');
   }
-  
+
   //Rota para abrir tela de Ajuda de Consultas Agendadas
   OpcaoAjudaConsAgendadas(){
-    this.navCtrl.setRoot(AjudaConsultasAgendadasPage);
+    const modal = this.modalCtrl.create(AjudaDetalhePage, {help: this.helpDescription[0]});
+    modal.present();
   }
-  
+
   //Rota para abrir tela de Ajuda de Consultas Presentes
   OpcaoAjudaConsPresentes(){
-    this.navCtrl.setRoot(AjudaConsultasPresentesPage);
+    const modal = this.modalCtrl.create(AjudaDetalhePage, {help: this.helpDescription[1]});
+    modal.present();
   }
 
   //Rota para abrir tela de Ajuda de Consultas Ausentes
   OpcaoAjudaConsAusentes(){
-    this.navCtrl.setRoot(AjudaConsultasAusentesPage);
+    const modal = this.modalCtrl.create(AjudaDetalhePage, {help: this.helpDescription[2]});
+    modal.present();
   }
 
   //Rota para abrir tela de Ajuda de Consultas Perfil
   OpcaoAjudaPerfil(){
-    this.navCtrl.setRoot(AjudaPerfilPage);
+    const modal = this.modalCtrl.create(AjudaDetalhePage, {help: this.helpDescription[3]});
+    modal.present();
   }
-  
+
   //Rota para abrir tela de Ajuda Entre em Contato
   OpcaoAjudaContato(){
     this.navCtrl.setRoot(AjudaEntreContatoPage);

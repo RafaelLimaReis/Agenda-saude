@@ -1,3 +1,5 @@
+import { AjudaDetalhePage } from './../pages/ajuda-detalhe/ajuda-detalhe';
+import { HelpDescriptionComponent } from './../components/help-description/help-description';
 import { DetalhesConsultaPage } from './../pages/detalhes-consulta/detalhes-consulta';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { pushNotification } from './../services/pushNotification';
@@ -26,14 +28,8 @@ import { MyApp } from './app.component';
 import { ConsultaPage } from '../pages/consultas/consulta';
 import { ApoioPage } from '../pages/apoio/apoio';
 
-import { AjudaPerfilPage } from '../pages/ajuda-perfil/ajuda-perfil';
-
 import { SolicitarPreAgendamentoPage } from '../pages/solicitar-pre-agendamento/solicitar-pre-agendamento';
 import { AjudaEntreContatoPage } from '../pages/ajuda-entre-contato/ajuda-entre-contato';
-import { AjudaConsultasPresentesPage } from '../pages/ajuda-consultas-presentes/ajuda-consultas-presentes';
-import { AjudaConsultasAusentesPage } from '../pages/ajuda-consultas-ausentes/ajuda-consultas-ausentes';
-import { AjudaConsultasAgendadasPage } from '../pages/ajuda-consultas-agendadas/ajuda-consultas-agendadas';
-
 
 @NgModule({
   declarations: [
@@ -46,14 +42,12 @@ import { AjudaConsultasAgendadasPage } from '../pages/ajuda-consultas-agendadas/
     AjudaPage,
     Login_2Page,
     ConsultaPage,
-    AjudaConsultasAgendadasPage,
-    AjudaConsultasAusentesPage,
-    AjudaConsultasPresentesPage,
     SolicitarPreAgendamentoPage,
-    AjudaPerfilPage,
+    AjudaDetalhePage,
     AjudaEntreContatoPage,
     DetalhesConsultaPage,
-    ApoioPage
+    ApoioPage,
+    HelpDescriptionComponent
   ],
   imports: [
     BrowserModule,
@@ -70,11 +64,8 @@ import { AjudaConsultasAgendadasPage } from '../pages/ajuda-consultas-agendadas/
     AjudaPage,
     Login_2Page,
     ConsultaPage,
-    AjudaConsultasAgendadasPage,
-    AjudaConsultasAusentesPage,
-    AjudaConsultasPresentesPage,
     SolicitarPreAgendamentoPage,
-    AjudaPerfilPage,
+    AjudaDetalhePage,
     AjudaEntreContatoPage,
     DetalhesConsultaPage,
     ApoioPage
