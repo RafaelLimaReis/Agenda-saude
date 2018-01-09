@@ -12,6 +12,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { ConsultaPage } from './../pages/consultas/consulta';
+import { MenuPage } from '../pages/menu/menu';
 
 @Component({
   templateUrl: 'app.html'
@@ -70,7 +71,7 @@ export class MyApp {
     if (usuario != null) {
       if(usuario[0].flag === true) {
         this.menuCTRL.enable(true);
-        return ConsultaPage;
+        return MenuPage;
       }
     } else{
       return  LoginPage;

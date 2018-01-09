@@ -23,7 +23,6 @@ export class DetalhesConsultaPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad DetalhesAgendadaPage');
-    console.log(this.consulta);
   }
 
   voltarAgendadas(){

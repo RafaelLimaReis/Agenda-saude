@@ -1,3 +1,4 @@
+import { MenuPage } from './../pages/menu/menu';
 import { DetalhesConsultaPage } from './../pages/detalhes-consulta/detalhes-consulta';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { pushNotification } from './../services/pushNotification';
@@ -53,6 +54,7 @@ import { AjudaConsultasAgendadasPage } from '../pages/ajuda-consultas-agendadas/
     AjudaPerfilPage,
     AjudaEntreContatoPage,
     DetalhesConsultaPage,
+    MenuPage,
     ApoioPage
   ],
   imports: [
@@ -77,6 +79,7 @@ import { AjudaConsultasAgendadasPage } from '../pages/ajuda-consultas-agendadas/
     AjudaPerfilPage,
     AjudaEntreContatoPage,
     DetalhesConsultaPage,
+    MenuPage,
     ApoioPage
   ],
   providers: [
