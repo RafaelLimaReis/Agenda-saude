@@ -1,5 +1,9 @@
+
 import { AjudaDetalhePage } from './../pages/ajuda-detalhe/ajuda-detalhe';
 import { HelpDescriptionComponent } from './../components/help-description/help-description';
+
+import { MenuPage } from './../pages/menu/menu';
+
 import { DetalhesConsultaPage } from './../pages/detalhes-consulta/detalhes-consulta';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { pushNotification } from './../services/pushNotification';
@@ -47,7 +51,10 @@ import { AjudaEntreContatoPage } from '../pages/ajuda-entre-contato/ajuda-entre-
     AjudaEntreContatoPage,
     DetalhesConsultaPage,
     ApoioPage,
-    HelpDescriptionComponent
+    HelpDescriptionComponent,
+    MenuPage,
+    ApoioPage
+
   ],
   imports: [
     BrowserModule,
@@ -68,6 +75,7 @@ import { AjudaEntreContatoPage } from '../pages/ajuda-entre-contato/ajuda-entre-
     AjudaDetalhePage,
     AjudaEntreContatoPage,
     DetalhesConsultaPage,
+    MenuPage,
     ApoioPage
   ],
   providers: [

@@ -1,0 +1,59 @@
+page-menu {
+    
+    .fhm_container
+    {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+    }
+    
+    .fhm_row
+    {
+        /* position: absolute; */
+        height: 33.3% ;
+        left: 0;
+        right: 0;
+        background-color: #FF0000;
+        clear: both;
+    }
+    
+    .fhm_item
+    {
+        height: 100%;
+        width: 49.95%;
+        font-size: 20px;
+        color: white;
+        text-align: center;
+        border: 2px solid #FFFFFF;
+        float: left;
+        position: relative;
+        background-color: #08367C
+    }
+    
+    .titulo{
+    position: absolute;
+    top:0;
+    right:0;
+    left:0;
+    bottom:0;
+    margin: auto;
+    width:100%;
+    height: 10%;
+    }
+    
+    ion-icon {
+      margin-top: 20%;
+      font-size: 40px;
+    }
+    .icones {
+        margin-top: 20%;
+        font-size: 40px;
+      }
+  
+
+   
+    
+    
+}
