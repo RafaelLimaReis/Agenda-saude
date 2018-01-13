@@ -52,13 +52,13 @@ export class AjudaPage {
 
   //Rota para abrir tela de Ajuda de Consultas Presentes
   OpcaoAjudaConsPresentes(){
-    const modal = this.modalCtrl.create(AjudaDetalhePage, {help: this.helpDescription[1]});
+    const modal = this.modalCtrl.create(AjudaDetalhePage, {help: this.helpDescription[2]});
     modal.present();
   }
 
   //Rota para abrir tela de Ajuda de Consultas Ausentes
   OpcaoAjudaConsAusentes(){
-    const modal = this.modalCtrl.create(AjudaDetalhePage, {help: this.helpDescription[2]});
+    const modal = this.modalCtrl.create(AjudaDetalhePage, {help: this.helpDescription[1]});
     modal.present();
   }
 
