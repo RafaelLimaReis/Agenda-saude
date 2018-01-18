@@ -21,13 +21,13 @@
     <ion-item>
       <ion-label>Especialidade</ion-label>
       <ion-select [(ngModel)]="id" name="id" (ionChange)="filtrarMotivo(id)">
-        <ion-option *ngFor="let espec of especialidade" [value]="espec.Codigo"><br>{{espec.Descricao}}</ion-option>
+        <ion-option *ngFor="let espec of especialidade" [value]="espec.id"><br>{{espec.nome}}</ion-option>
       </ion-select>
     </ion-item>
     <ion-item>
       <ion-label>Motivo</ion-label>
       <ion-select [(ngModel)]="motivo" name="motivo">
-        <ion-option *ngFor="let mot of motivos" [value]="mot.id">{{mot.MotivoAgendamentoEspecialidade}}</ion-option>
+        <ion-option *ngFor="let mot of motivos" [value]="mot.id">{{mot.descricao}}</ion-option>
       </ion-select>
     </ion-item>
     <button ion-button color="primary" type="submit" block padding>Realizar Pré Agendamento</button>
