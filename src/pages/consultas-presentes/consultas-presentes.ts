@@ -37,12 +37,11 @@ export class ConsultasPresentesPage {
 
 
   getConsultaRealizadas(){
-    let cartaoSus = this.usuario[0].cartao_sus;
 
     const loading = this.loadController.create({content:'Aguarde...'});
     loading.present(loading);
 
-    return this.apiPrefeitura.getConsultaRealizadasService(cartaoSus).subscribe(res =>{
+    return this.apiPrefeitura.getConsultaRealizadasService().subscribe(res =>{
       this.realizadas = res;
       loading.dismiss();
     }, err =>{

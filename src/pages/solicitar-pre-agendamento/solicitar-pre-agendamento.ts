@@ -91,7 +91,7 @@ export class SolicitarPreAgendamentoPage {
 
   salvar(){
     let carregar = this.loadController.create({content:'Aguarde...'});
-    let usuario = JSON.parse(localStorage.getItem('usuario'));
+    //let usuario = JSON.parse(localStorage.getItem('usuario'));
     this.dados = {'paciente':{'id':232609}, 'especialidade':{'id':this.id}, 'motivoAgendamento':{'id':this.motivo}}
 
     carregar.present(carregar);

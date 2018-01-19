@@ -29,27 +29,27 @@ export class MenuPage {
   }
 
   consultaAgendada(){
-    this.navCtrl.setRoot(ConsultaPage);
+    this.navCtrl.push(ConsultaPage);
   }
 
   consultaRealizada(){
-    this.navCtrl.setRoot(ConsultasPresentesPage);
+    this.navCtrl.push(ConsultasPresentesPage);
   }
 
   consultaAusente(){
-    this.navCtrl.setRoot(ConsultasAusentesPage);
+    this.navCtrl.push(ConsultasAusentesPage);
   }
 
   preAgendamento(){
-    this.navCtrl.setRoot(SolicitarPreAgendamentoPage);
+    this.navCtrl.push(SolicitarPreAgendamentoPage);
   }
 
   ajuda(){
-    this.navCtrl.setRoot(AjudaPage);
+    this.navCtrl.push(AjudaPage);
   }
 
   apoio(){
-    this.navCtrl.setRoot(ApoioPage);
+    this.navCtrl.push(ApoioPage);
   }
 
 }

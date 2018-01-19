@@ -26,12 +26,11 @@ export class ConsultaPage {
   }
 
   private getConsultaAgendadas() {
-    let cartaoSus = this.usuario[0].cartao_sus;
+    //let cartaoSus = this.usuario[0].cartao_sus;
 
     const loading = this.loadController.create({content:'Aguarde...'});
     loading.present(loading);
-    
-     return this.apiPrefeitura.getConsultaAgendadaService(cartaoSus).subscribe(res => {
+     return this.apiPrefeitura.getConsultaAgendadaService().subscribe(res => {
        this.agendadas = res;
        localStorage.setItem('agendamentos',JSON.stringify(this.agendadas));
        this.notification.createNotification(res);
