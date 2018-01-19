@@ -37,12 +37,12 @@ this.getConsultaAusentes();
   }
 
   getConsultaAusentes(){
-    let cartaoSus = this.usuario[0].cartao_sus;
+    //let cartaoSus = this.usuario[0].cartao_sus;
 
     const loading = this.loadController.create({content:'Aguarde...'});
     loading.dismiss();
 
-    return this.apiPrefeitura.getConsultaAusentesService(cartaoSus).subscribe(res =>{
+    return this.apiPrefeitura.getConsultaAusentesService().subscribe(res =>{
       this.ausentes = res;
       loading.dismiss();
     }, err =>{

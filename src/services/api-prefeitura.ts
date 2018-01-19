@@ -34,15 +34,15 @@ export class apiPrefeitura{
     }
     //
 
-    public getConsultaAgendadaService(cartao: number){
+    public getConsultaAgendadaService(){
         return this.http.post(`${this.webConfig.urlPrefeitura}agendamento/consultasagendadas`,this.body,this.headers).map(res => res.json());
     }
 
-    public getConsultaRealizadasService(cartao: number){
+    public getConsultaRealizadasService(){
         return this.http.post(`${this.webConfig.urlPrefeitura}agendamento/consultasrealizadas`, this.body, this.headers).map(res => res.json());
     }
 
-    public getConsultaAusentesService(cartao: number){
+    public getConsultaAusentesService(){
         return this.http.post(`${this.webConfig.urlPrefeitura}agendamento/consultasausentes`, this.body, this.headers).map(res => res.json());
     }
 

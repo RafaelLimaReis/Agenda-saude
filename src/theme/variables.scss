@@ -87,3 +87,17 @@ $fa-font-path: $font-path;
 
 @import "roboto";
 @import "noto-sans";
+
+.back-button-icon, .back-button-text {
+  color: white;
+  font-size: 10px;
+}
+
+.back-button-icon {
+  font-size: 10px;
+}
+
+.toolbar-title {
+  text-align: center;
+  font-size: 18px !important;
+}

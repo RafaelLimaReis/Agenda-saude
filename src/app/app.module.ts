@@ -8,7 +8,6 @@ import { DetalhesConsultaPage } from './../pages/detalhes-consulta/detalhes-cons
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { pushNotification } from './../services/pushNotification';
 
-import { Login_2Page } from './../pages/login-2/login-2';
 import { HttpModule } from '@angular/http';
 import { Network } from '@ionic-native/network';
 import { webConfig } from './../webConfig';
@@ -20,8 +19,6 @@ import { PerfilPage } from './../pages/perfil/perfil';
 import { ConsultasAusentesPage } from './../pages/consultas-ausentes/consultas-ausentes';
 import { ConsultasPresentesPage } from './../pages/consultas-presentes/consultas-presentes';
 
-
-import { LoginPage } from './../pages/login/login';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -39,12 +36,10 @@ import { AjudaEntreContatoPage } from '../pages/ajuda-entre-contato/ajuda-entre-
   declarations: [
     FaIconComponent,
     MyApp,
-    LoginPage,
     ConsultasPresentesPage,
     ConsultasAusentesPage,
     PerfilPage,
     AjudaPage,
-    Login_2Page,
     ConsultaPage,
     SolicitarPreAgendamentoPage,
     AjudaDetalhePage,
@@ -58,18 +53,18 @@ import { AjudaEntreContatoPage } from '../pages/ajuda-entre-contato/ajuda-entre-
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp, {
+      backButtonText: 'voltar',
+    }),
     HttpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    LoginPage,
     ConsultasPresentesPage,
     ConsultasAusentesPage,
     PerfilPage,
     AjudaPage,
-    Login_2Page,
     ConsultaPage,
     SolicitarPreAgendamentoPage,
     AjudaDetalhePage,

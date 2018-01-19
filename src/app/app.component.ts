@@ -1,17 +1,8 @@
-import { SolicitarPreAgendamentoPage } from './../pages/solicitar-pre-agendamento/solicitar-pre-agendamento';
-import { ApoioPage } from './../pages/apoio/apoio';
-
-import { LoginPage } from './../pages/login/login';
-import { AjudaPage } from './../pages/ajuda/ajuda';
-import { PerfilPage } from './../pages/perfil/perfil';
-import { ConsultasAusentesPage } from './../pages/consultas-ausentes/consultas-ausentes';
-import { ConsultasPresentesPage } from './../pages/consultas-presentes/consultas-presentes';
 import { Component, ViewChild } from '@angular/core';
 import { Platform, Nav, MenuController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { ConsultaPage } from './../pages/consultas/consulta';
 import { MenuPage } from '../pages/menu/menu';
 
 @Component({
@@ -20,32 +11,20 @@ import { MenuPage } from '../pages/menu/menu';
 export class MyApp {
 
   @ViewChild(Nav) nav: Nav;
-  pages: [{title: string, icon: string, Component: any}];
-  public usuario = JSON.parse(localStorage.getItem('usuario'));
-  //rootpage pra dev
-  // rootPage:any = HomePage;
-  // rootPage:any = AjudaPage;
-
-   public cartaoSus: string = '';
-   public nome:string = '';
-
-  //rootpage prod
-  rootPage:any = this.verificar();
-
+  rootPage:any = MenuPage;
+  config: {
+    platforms: {
+      ios: {
+        backButtonText: 'Voltar',
+      },
+      android: {
+        backButtonText: 'Voltar'
+      }
+    }
+  }
 
   constructor(public platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,
               public menuCTRL: MenuController) {
-    this.pages = [
-      {title: 'Consultas Agendadas', icon:'calendar', Component:ConsultaPage},
-      {title: 'Consultas Realizadas', icon:'calendar-check-o', Component:ConsultasPresentesPage},
-      {title: 'Consultas Ausentes', icon:'calendar-times-o', Component:ConsultasAusentesPage},
-      {title: 'Solicitar Pré Agendamento', icon:'calendar-plus-o', Component:SolicitarPreAgendamentoPage},
-      {title: 'Perfil', icon:'user-circle-o', Component:PerfilPage},
-      {title: 'Apoio',icon:'bookmark', Component:ApoioPage},
-      {title: 'Ajuda', icon:'info-circle', Component:AjudaPage},
-      {title: 'Sair', icon:'sign-out', Component:LoginPage}
-    ];
-
 
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
@@ -53,36 +32,5 @@ export class MyApp {
       statusBar.styleDefault();
       splashScreen.hide();
     });
-
-    this.buscaDadosMenu();
-
-  }
-
-
-  openPage(p: {title: string, icon:string, Component: any}): void {
-    this.nav.setRoot(p.Component);
-  }
-
-  //logica de validação
-  verificar(){
-    console.log( this.menuCTRL.isEnabled());
-    let usuario = JSON.parse(localStorage.getItem('usuario'));
-
-    if (usuario != null) {
-      if(usuario[0].flag === true) {
-        this.menuCTRL.enable(true);
-        return MenuPage;
-      }
-    } else{
-      return  LoginPage;
-
-    }
-  }
-
-  //dados no menu
-  buscaDadosMenu(){
-    this.cartaoSus =  (this.usuario != null) ?  this.usuario[0].cartao_sus : '';
-    this.nome = (this.usuario != null) ?  this.usuario[0].nome : '';
   }
 }
-
