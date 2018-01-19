@@ -1,3 +1,5 @@
+import { MenuPage } from './../menu/menu';
+import { Network } from '@ionic-native/network';
 import { DetalhesConsultaPage } from './../detalhes-consulta/detalhes-consulta';
 import { apiPrefeitura } from './../../services/api-prefeitura';
 import { Component } from '@angular/core';
@@ -23,7 +25,8 @@ export class ConsultasPresentesPage {
   constructor(public navCtrl: NavController, public apiPrefeitura : apiPrefeitura,
               public loadController: LoadingController,
               public alertCtrl: AlertController,
-              public modalCtrl: ModalController) {
+              public modalCtrl: ModalController,
+              public network: Network) {
   this.getConsultaRealizadas();
   }
 
@@ -37,34 +40,57 @@ export class ConsultasPresentesPage {
 
 
   getConsultaRealizadas(){
+    let connection = this.network.type; //pegar tipo de conexão atual do aparelho
 
-    const loading = this.loadController.create({content:'Aguarde...'});
-    loading.present(loading);
+    if ((connection === 'none') || (connection === 'unknown') || (connection === 'ethernet')){
+      //setando alert
+      let alert = this.alertCtrl.create({
+        title: 'Aviso!',
+        message: 'Conecte na internet.',
+        buttons: [{
+          text:'Voltar',
+          handler:() =>{
+            this.navCtrl.setRoot(MenuPage);
+          }
+        }]
+      });
+      alert.present(); //lançando alert
+    } else {
+      const loading = this.loadController.create({content:'Aguarde...'});
+      loading.present(loading);
 
-    return this.apiPrefeitura.getConsultaRealizadasService().subscribe(res =>{
-      this.realizadas = res;
-      loading.dismiss();
-    }, err =>{
-      if (err.status === 404){
-        let alert = this.alertCtrl.create({
-          message: 'Não há Consultas Realizadas.',
-          buttons: ['Voltar']
-        });
+      return this.apiPrefeitura.getConsultaRealizadasService().subscribe(res =>{
+        this.realizadas = res;
         loading.dismiss();
-        alert.present();
-      }
-      else {
-        if(err.status === 408){
+      }, err =>{
+        if (err.status === 404){
           let alert = this.alertCtrl.create({
-            title: 'Ocorreu um erro!',
-            message: 'Não há conexão com a internet.',
-            buttons: ['Voltar']
+            message: 'Não há Consultas Realizadas.',
+            buttons: [{
+          text:'Voltar',
+          handler:() =>{
+            this.navCtrl.setRoot(MenuPage);
+          }
+        }]
           });
-          loading.dismiss();
           alert.present();
         }
-      }
-    })
+        else {
+          let alert = this.alertCtrl.create({
+            title: 'Aviso!',
+            message: 'Ocorreu algum problema tente novamente mais tarde.',
+            buttons: [{
+          text:'Voltar',
+          handler:() =>{
+            this.navCtrl.setRoot(MenuPage);
+          }
+        }]
+          });
+          alert.present();
+        }
+        loading.dismiss();
+      })
+    }
   }
 
   convertTime(time){
