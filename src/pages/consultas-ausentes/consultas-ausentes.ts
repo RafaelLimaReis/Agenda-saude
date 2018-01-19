@@ -40,7 +40,7 @@ this.getConsultaAusentes();
     let cartaoSus = this.usuario[0].cartao_sus;
 
     const loading = this.loadController.create({content:'Aguarde...'});
-    loading.dismiss();
+    loading.present(loading);
 
     return this.apiPrefeitura.getConsultaAusentesService(cartaoSus).subscribe(res =>{
       this.ausentes = res;

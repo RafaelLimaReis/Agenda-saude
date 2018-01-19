@@ -30,6 +30,7 @@ export class ConsultaPage {
 
     const loading = this.loadController.create({content:'Aguarde...'});
     loading.present(loading);
+    
      return this.apiPrefeitura.getConsultaAgendadaService(cartaoSus).subscribe(res => {
        this.agendadas = res;
        localStorage.setItem('agendamentos',JSON.stringify(this.agendadas));
